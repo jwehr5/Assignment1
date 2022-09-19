@@ -99,7 +99,7 @@ int main() {
     removeInt(arr, currentIndex, currentIndex);
 	cout << "/////////////////////////////////////////" << endl << endl;
 
-
+	
 
 	inputFile.close();
 	return 0;

@@ -34,7 +34,7 @@ int checkForInt(int arr[], int numToLookFor, int currentIndex);
 
 	@return the old value that was located at the index.
 	@return the new value that was passed in.
-	@return -1 if the index passed in is a negative number or if equal or greater than the currentIndex.
+	@return -1 if the index passed in is a negative number or if greater or equal than the currentIndex.
 
 	@pre The array must not be empty
 */
@@ -52,7 +52,7 @@ int modifyInt(int arr[], int indexOfNumber, int &newValue, int currentIndex);
 
 	@return the updated currentIndex after adding an new integer to the array.
 
-	@pre The array must not be empty.
+	@pre The array must not be empty nor full.
 */
 void addIntAtTheEnd(int arr[], int numberToAdd, int& currentIndex, int arrSize);
 

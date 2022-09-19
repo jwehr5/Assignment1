@@ -48,7 +48,7 @@ int modifyInt(int arr[], int indexOfNumber, int& newValue, int currentIndex) {
 void addIntAtTheEnd(int arr[], int numberToAdd, int& currentIndex, int arrSize) {
 
 	/*
-	* Check to make sure that we haven't reached the capacity of the array.
+	* Check to make sure that we haven't reached the capacity of the array before adding.
 	* 
 	*/
 	if (currentIndex != arrSize) {
