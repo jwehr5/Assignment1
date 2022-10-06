@@ -39,7 +39,9 @@ int modifyInt(int arr[], int indexOfNumber, int& newValue, int currentIndex) {
 
 	}
 	else {
-		return -1;
+		//Throw an exception if the index is not valid
+		throw out_of_range("ERROR! Index is invalid");
+		
 	}
 
 
@@ -56,7 +58,8 @@ void addIntAtTheEnd(int arr[], int numberToAdd, int& currentIndex, int arrSize) 
 		currentIndex++;
 	}
 	else {
-		cout << "Array is full. Cannot add any more integers" << endl;
+		//Throw an exception if we are at the end of the array.
+		throw out_of_range("ERROR! The array is already full");
 	}
 
 }

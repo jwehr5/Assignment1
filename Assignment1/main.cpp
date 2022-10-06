@@ -7,6 +7,7 @@ main.cpp
 #include <iostream>
 #include <fstream>
 #include "functions.h"
+#include <stdexcept>
 using namespace std;
 
 int main() {
@@ -26,7 +27,7 @@ int main() {
 
 	//Keep track of the current index we are at in the array.
 	int currentIndex = 0;
-	
+
 	//Read through every number in the file until we reach the end. Increase currentIndex by 1 every time we add an element.
 	while (inputFile >> number && currentIndex != ARR_SIZE) {
 		arr[currentIndex] = number;
@@ -41,7 +42,7 @@ int main() {
 
 	cout << "Let's look for the index of 1000. (There is no 1000 in the array)." << endl;
 	cout << "Calling checkForInt(): ..." << endl;
- 	cout << "Index of 1000 is: " << checkForInt(arr, 1000, currentIndex) << endl;
+	cout << "Index of 1000 is: " << checkForInt(arr, 1000, currentIndex) << endl;
 	cout << "/////////////////////////////////////////" << endl << endl;
 
 
@@ -50,32 +51,66 @@ int main() {
 	int n = 305;
 	cout << "After calling ModifyInt(), the old value was: " << modifyInt(arr, 30, n, currentIndex) << endl;
 	cout << "And the new value is now: " << arr[30] << endl << endl;
-	
+
 	cout << "Let's try passing in a negative index" << endl;
 	n = 230;
-	cout << "Let's try passing in an index of -4 and we'll set the new value to be 230" << endl;
-	cout << "After calling ModifyInt(), the old value was: " << modifyInt(arr, -4, n, currentIndex) << endl << endl;
+
+	//Try-catch block for trying to modify an int at a negative index.
+	try {
+
+		cout << "Let's try passing in an index of -4 and we'll set the new value to be 230" << endl;
+		cout << "After calling ModifyInt(), the old value was: " << modifyInt(arr, -4, n, currentIndex) << endl << endl;
+
+	}
+	catch (out_of_range& oor) {
+		cout << "*** The Out Of Range Exception has been thrown! ***" << endl;
+		cout << oor.what() << endl << endl;
+
+	}
+
+
 
 	cout << "The current index we are at is: " << currentIndex << endl;
 	cout << "Let's try modifying the value at this index and we'll set the value to 440. (We shouldn't be able to modify the value at this index)." << endl;
 	n = 440;
-	cout << "After calling ModifyInt(), the old value was: " << modifyInt(arr, currentIndex, n, currentIndex) << endl;
+
+	//Try catch block for trying to modify an int at the current index.
+	try {
+		cout << "After calling ModifyInt(), the old value was: " << modifyInt(arr, currentIndex, n, currentIndex) << endl;
+	}
+	catch (out_of_range& oor) {
+		cout << "*** The Out Of Range Exception has been thrown! ***" << endl;
+		cout << oor.what() << endl << endl;
+
+	}
+
 	cout << "/////////////////////////////////////////" << endl << endl;
 
 
 	cout << "//////// TESTING ADDINTATTHEEND() //////////" << endl;
 	cout << "The current index we are at is: " << currentIndex << endl;
 	cout << "Let's add a value of 623 to the array" << endl;
-	cout << "Calling addIntAtTheEnd(): ..." << endl; 
+	cout << "Calling addIntAtTheEnd(): ..." << endl;
 	addIntAtTheEnd(arr, 623, currentIndex, ARR_SIZE);
 	cout << "The value at index " << currentIndex - 1 << " is: " << arr[currentIndex - 1] << endl << endl;
 
 	cout << "Let's set currentIndex to " << ARR_SIZE << " and see what happens when we try to add an element" << endl;
 	int temp = currentIndex;
 	currentIndex = 150;
-	cout << "Let's add a value of 432 to the array:" << endl;
-	cout << "Calling addIntAtTheEnd(): ";
-	addIntAtTheEnd(arr, 432, currentIndex, ARR_SIZE);
+
+	//Try-Catch block for adding a value to a full array
+	try {
+
+		cout << "Let's add a value of 432 to the array:" << endl;
+		cout << "Calling addIntAtTheEnd(): " << endl;
+		addIntAtTheEnd(arr, 432, currentIndex, ARR_SIZE);
+
+	}
+	catch (out_of_range& oor) {
+		cout << "*** The Out Of Range Exception has been thrown! ***" << endl;
+		cout << oor.what() << endl << endl;
+	}
+	
 	currentIndex = temp;
 	cout << "/////////////////////////////////////////" << endl << endl;
 
