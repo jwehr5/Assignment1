@@ -76,9 +76,13 @@ int main() {
 
 	//Try catch block for trying to modify an int at the current index.
 	try {
+		
+		//This line of code will cause the exception to be thrown.
 		cout << "After calling ModifyInt(), the old value was: " << modifyInt(arr, currentIndex, n, currentIndex) << endl;
 	}
 	catch (out_of_range& oor) {
+
+		//Signify what exception has been thrown and print the contents of the what statement.
 		cout << "*** The Out Of Range Exception has been thrown! ***" << endl;
 		cout << oor.what() << endl << endl;
 
@@ -124,14 +128,35 @@ int main() {
 	cout << "The value at index 75 is now " << arr[75] << endl;
 	cout << "The current index we are at is now " << currentIndex << endl << endl;
 
-	cout << "Let's try passing in a negative index of -5" << endl;
-	cout << "Calling removeInt(): ";
-	removeInt(arr, -5, currentIndex);
+	//Try-catch block for a negative index
+	try {
+		cout << "Let's try passing in a negative index of -5" << endl;
+		cout << "Calling removeInt(): " << endl;
+		removeInt(arr, -5, currentIndex);
 
-	cout << endl;
-	cout << "Let's try removing the value at index " << currentIndex << endl;
-	cout << "Calling removeInt(): ";
-    removeInt(arr, currentIndex, currentIndex);
+		
+
+	}
+	catch (out_of_range oor) {
+		cout << "*** The Out Of Range Exception has been thrown! ***" << endl;
+		cout << oor.what() << endl << endl;
+	}
+
+	//Try-catch block for removing a value at the current index.
+	try {
+
+		cout << endl;
+		cout << "Let's try removing the value at index " << currentIndex << endl;
+		cout << "Calling removeInt(): " << endl;
+		removeInt(arr, currentIndex, currentIndex);
+
+	}
+	catch (out_of_range oor) {
+		cout << "*** The Out Of Range Exception has been thrown! ***" << endl;
+		cout << oor.what() << endl << endl;
+	}
+	
+	
 	cout << "/////////////////////////////////////////" << endl << endl;
 
 	

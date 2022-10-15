@@ -78,7 +78,8 @@ void removeInt(int arr[], int indexToRemove, int& currentIndex) {
 
 	}
 	else {
-		cout << "Invalid input was detected" << endl;
+		//Throw an exception if we are given an invalid index
+		throw out_of_range("ERROR! Index is Invalid.");
 	}
 
 	
