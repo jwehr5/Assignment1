@@ -64,7 +64,8 @@ int main() {
 	}
 	catch (out_of_range& oor) {
 		cout << "*** The Out Of Range Exception has been thrown! ***" << endl;
-		cout << oor.what() << endl << endl;
+		cout << oor.what() << endl;
+		cout << "Cannot modify the value at index -4" << endl << endl;
 
 	}
 
@@ -84,7 +85,8 @@ int main() {
 
 		//Signify what exception has been thrown and print the contents of the what statement.
 		cout << "*** The Out Of Range Exception has been thrown! ***" << endl;
-		cout << oor.what() << endl << endl;
+		cout << oor.what() << endl;
+		cout << "There is no value at the specified index" << endl << endl;
 
 	}
 
@@ -139,7 +141,8 @@ int main() {
 	}
 	catch (out_of_range oor) {
 		cout << "*** The Out Of Range Exception has been thrown! ***" << endl;
-		cout << oor.what() << endl << endl;
+		cout << oor.what() << endl;
+		cout << "Cannot remove the value at index -5." << endl << endl;
 	}
 
 	//Try-catch block for removing a value at the current index.
@@ -153,7 +156,8 @@ int main() {
 	}
 	catch (out_of_range oor) {
 		cout << "*** The Out Of Range Exception has been thrown! ***" << endl;
-		cout << oor.what() << endl << endl;
+		cout << oor.what() << endl;
+		cout << "There is no value at the specified index." << endl << endl;
 	}
 	
 	
